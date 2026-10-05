@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Warehouse{% endblock %}</title>
+</head>
+
+<body>
+
+    {% include "partials/menu.html" %}
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer>
+        <p>Warehouse Management System</p>
+    </footer>
+
+</body>
+</html>

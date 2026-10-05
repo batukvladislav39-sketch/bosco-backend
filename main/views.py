@@ -12,23 +12,14 @@ def home(request):
         <a href="/products/">View Products</a>
     """)
 
-def show_products(req):
+def show_products(request):
     products = Product.objects.all()
 
-    html = ""
-
-    for product in products:
-        html += f"""
-<div class="product-card">
-    <h2>{product.name}</h2>
-    <p>Бренд: {product.brand}</p>
-    <p>Розмір: {product.size}</p>
-    <p>Колір: {product.color}</p>
-    <strong>{product.price} ₴</strong>
-</div>
-        """
-
-    return HttpResponse(html)
+    return render(
+        request,
+        "main/products.html",
+        {"products": products}
+    )
 
 def replenish(request, count):
     names = ["T-Shirt", "Jeans", "Jacket", "Hoodie", "Shirt"]

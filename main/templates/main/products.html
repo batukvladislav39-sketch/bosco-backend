@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load main_extras %}
+
+{% block title %}
+Products
+{% endblock %}
+
+{% block content %}
+
+<h1>Products</h1>
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Brand</th>
+        <th>Size</th>
+        <th>Color</th>
+        <th>Price</th>
+    </tr>
+
+    {% for product in products %}
+        <tr>
+            <td>{{ product.name }}</td>
+            <td>{{ product.brand }}</td>
+            <td>{{ product.size }}</td>
+            <td>{{ product.color }}</td>
+            <td>{{ product.price|uah }}</td>
+        </tr>
+    {% empty %}
+        <tr>
+            <td colspan="5">Товарів немає</td>
+        </tr>
+    {% endfor %}
+
+</table>
+
+{% endblock %}
