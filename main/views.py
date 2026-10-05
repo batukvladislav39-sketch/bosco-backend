@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Product
 import random
+from django.contrib import messages
+from django.shortcuts import render, redirect
 
 # Create your views here.
 
@@ -37,3 +39,26 @@ def replenish(request, count):
         )
 
     return HttpResponse(f"Додано {count} нових записів")
+
+
+def add_product(request):
+    if request.method == "POST":
+        name = request.POST.get("name")
+        brand = request.POST.get("brand")
+        size = request.POST.get("size")
+        color = request.POST.get("color")
+        price = request.POST.get("price")
+
+        Product.objects.create(
+            name=name,
+            brand=brand,
+            size=size,
+            color=color,
+            price=price
+        )
+
+        messages.success(request, "Product successfully added!")
+
+        return redirect("/products/")
+
+    return render(request, "main/add_product.html")

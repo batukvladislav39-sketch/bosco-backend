@@ -1,37 +1,66 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    background: #f4f4f4;
+* {
+    box-sizing: border-box;
 }
 
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f6f8;
+    color: #222;
+}
+
+/* Navigation */
+
 nav {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 30px;
     background: #222;
-    padding: 15px;
 }
 
 nav a {
     color: white;
     text-decoration: none;
-    margin-right: 20px;
+    padding: 9px 14px;
+    border-radius: 6px;
 }
 
 nav a:hover {
-    text-decoration: underline;
+    background: #444;
 }
 
-main {
-    padding: 30px;
+nav span {
+    margin-left: auto;
+    color: #ddd;
 }
+
+/* Main */
+
+main {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+h1 {
+    margin-bottom: 25px;
+}
+
+/* Table */
 
 table {
     width: 100%;
     border-collapse: collapse;
     background: white;
+    border-radius: 8px;
+    overflow: hidden;
 }
 
-th, td {
-    padding: 12px;
-    border: 1px solid #ddd;
+th,
+td {
+    padding: 14px;
+    border-bottom: 1px solid #ddd;
     text-align: left;
 }
 
@@ -44,8 +73,66 @@ tr:hover {
     background: #f1f1f1;
 }
 
+/* Forms */
+
+form {
+    max-width: 500px;
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+form label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+}
+
+form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 18px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 15px;
+}
+
+form input:focus {
+    outline: none;
+    border-color: #555;
+}
+
+button {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 6px;
+    background: #222;
+    color: white;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+button:hover {
+    background: #444;
+}
+
+/* Messages */
+
+p {
+    line-height: 1.5;
+}
+
+body > p {
+    margin: 15px 30px;
+}
+
+/* Footer */
+
 footer {
-    margin-top: 30px;
-    padding: 20px;
+    margin-top: 60px;
+    padding: 25px;
     text-align: center;
+    background: #222;
+    color: #aaa;
 }
