@@ -1,5 +1,11 @@
+{% load main_extras %}
+
 <nav>
     <a href="/">Home</a>
     <a href="/products/">Products</a>
-    <a href="/replenish/10/">Add 5 products</a>
+    <a href="/replenish/5/">Add 5 products</a>
+
+    <span>
+        Товарів у базі: {% product_count %}
+    </span>
 </nav>
