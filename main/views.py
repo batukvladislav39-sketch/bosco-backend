@@ -49,6 +49,20 @@ def add_product(request):
         color = request.POST.get("color")
         price = request.POST.get("price")
 
+        if not all([name, brand, size, color, price]):
+            messages.error(request, "All fields are required!")
+            return redirect("/products/add/")
+
+        try:
+            price = float(price)
+
+            if price <= 0:
+                raise ValueError
+
+        except ValueError:
+            messages.error(request, "Price must be a positive number!")
+            return redirect("/products/add/")
+
         Product.objects.create(
             name=name,
             brand=brand,
@@ -58,7 +72,6 @@ def add_product(request):
         )
 
         messages.success(request, "Product successfully added!")
-
         return redirect("/products/")
 
     return render(request, "main/add_product.html")
